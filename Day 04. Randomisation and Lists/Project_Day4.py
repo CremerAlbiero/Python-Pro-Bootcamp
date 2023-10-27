@@ -25,27 +25,20 @@ scissors = """
 ---.__(___)
 """
 
+games = [rock, paper, scissors]
 plays = [0, 1, 2]
 computer = randint(0, 2)
 player_choice = int(input("What will you go? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
 
 
 if player_choice in plays:
-    print("Your play:\n")
-    if player_choice == 0:
-        print(rock)
-    elif player_choice == 1:
-        print(paper)
-    elif player_choice == 2:
-        print(scissors)
+    print(f"Your play:\n")
+    print(games[player_choice])
+
 if computer in plays:
-    print("Computer:\n")
-    if computer == 0:
-        print(rock)
-    elif computer == 1:
-        print(paper)
-    elif computer == 2:
-        print(scissors)
+    print(f"Computer:\n")
+    print(games[computer])
+
 else:
     print("Invalid Input. Please type just 0, 1 or 2.")
 
