@@ -25,17 +25,27 @@ for letter in word_selected:
 user_attempts = 7
 if word_lenght >= 7:
     user_attempts = word_lenght + 2 
-print(f"The word has {word_lenght}.\nYou'll have {user_attempts} attempts in total.")
+print(f"The word has {word_lenght} letters.\nYou'll have {user_attempts} attempts in total.")
 print(display_game)
+
+guessed_letters = []
 
 while word_game != display_game and user_attempts > 0:
     user_guess = input("Guess a letter: ").lower()
+
+    if user_guess in guessed_letters:
+        print("You've already guessed that letter")
+        user_attempts -= 1
+        print(f"{user_attempts} attemps left.")
+        continue
+
+    guessed_letters.append(user_guess)
+
     if user_guess in word_game:
         for i in range(word_lenght):
             letter = word_game[i]
             if user_guess == letter:
                 display_game[i] = letter
-            
         print(" ".join(display_game))
     else:
         user_attempts -= 1
