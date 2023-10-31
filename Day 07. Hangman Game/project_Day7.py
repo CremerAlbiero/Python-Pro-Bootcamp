@@ -1,5 +1,6 @@
 from random import choice
 from words_lists import *
+from acsii_art import logo, stages
 
 categories = [soccer_teams, holidays, professions, sports, weather, planets, countries, fruits, animals]
 selected_words = []
@@ -23,9 +24,10 @@ for letter in word_selected:
 
 # user attempts
 user_attempts = 7
-if word_lenght >= 7:
-    user_attempts = word_lenght + 2 
-print(f"The word has {word_lenght} letters.\nYou'll have {user_attempts} attempts in total.")
+if word_lenght >= 10:
+    user_attempts = word_lenght + 2
+print(logo)
+print(f"The word has {word_lenght} letters. You'll have {user_attempts} attempts in total.")
 print(display_game)
 
 guessed_letters = []
@@ -36,7 +38,9 @@ while word_game != display_game and user_attempts > 0:
     if user_guess in guessed_letters:
         print("You've already guessed that letter")
         user_attempts -= 1
-        print(f"{user_attempts} attemps left.")
+        print(f"{user_attempts} attempts left.")
+        if user_attempts <= 7:
+            print(stages[user_attempts])
         continue
 
     guessed_letters.append(user_guess)
@@ -51,6 +55,8 @@ while word_game != display_game and user_attempts > 0:
         user_attempts -= 1
         print(f"Wrong. You have {user_attempts} attempts left.")
         print(" ".join(display_game))
+        if user_attempts <= 7:
+            print(stages[user_attempts])
 
 if word_game == display_game:
     print("You won!")
