@@ -22,7 +22,7 @@ max_bid = all_bids[max_bidder]
 
 all_bids = {}
 more_names = True
-print("Welcome to the secret auction program.")
-
 
 print(f"The winner is {max_bidder} with a bid of ${max_bid}.")
+
+#It's also possible to use for loop other than the max() built-in function.
