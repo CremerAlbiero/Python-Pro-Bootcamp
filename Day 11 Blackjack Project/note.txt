@@ -1,0 +1,3 @@
+# In Python, the global keyword is used to indicate that a variable is a global variable, 
+meaning it should be treated as a variable defined in the global scope 
+rather than a local variable within a function.
